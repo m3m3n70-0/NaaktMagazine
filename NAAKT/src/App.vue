@@ -14,7 +14,7 @@ import { RouterLink, RouterView } from 'vue-router'
 </template>
 
 <style scoped>
-    @import '../assets/main.css';
+    @import './assets/main.css';
     nav{
       position: absolute;
       display: flex;
@@ -23,6 +23,6 @@ import { RouterLink, RouterView } from 'vue-router'
     }
     a{
       text-decoration: none;
-      color: var(white);
+      color: var(--white);
     }
 </style>

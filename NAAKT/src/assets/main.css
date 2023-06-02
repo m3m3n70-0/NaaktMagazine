@@ -1,4 +1,12 @@
 @import './dashboard.css';
+@font-face {
+  font-family: avallon;
+  src: url(/src/assets/fonts/Avallon.ttf);
+}
+@font-face {
+  font-family: elza;
+  src: url(/src/assets/fonts/Elza-Semibold.otf);
+}
 
 :root{
   --white: #ffffff;
@@ -10,8 +18,53 @@
   box-sizing: border-box;
 }
 
-
-
 #app {
   
-}  
+}
+
+#background-container{
+  
+  height: 100vh;
+  width: 100%;
+}
+#background-overlay{
+  background-color: #dc0404;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  mix-blend-mode: overlay;
+  opacity: 50%;
+  filter: blur(100px);
+}
+#background-img{
+  background-image: url("../src/assets/img/home_page/home_image.png");
+  background-size: cover;
+  width: 100%;
+  transform: scaleX(-1);
+  z-index: 0;
+}
+#over-background{
+  margin-top: -75vh;
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+@media only screen and (max-width: 800px) {
+  #over-background {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+#logo-home{
+  z-index: 1;
+  height: auto;
+  width: 40vw;
+}
+#naakt-magazine{
+  font-family: avallon;
+  color: var(--white);
+  font-size: clamp(2em, 4vw, 4em);
+  white-space: nowrap;
+}

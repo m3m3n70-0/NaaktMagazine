@@ -1,24 +1,11 @@
-<script setup>
-</script>
-
 <template>
+<div id="background-container">
   <div id="background-img">
     <div id="background-overlay"></div>
   </div>
+  <div id="over-background">
+    <img id="logo-home" src="../assets/img/home_page/logo_wit.png">
+    <h1 id="naakt-magazine">Naakt Magazine,<br> door studenten voor studenten</h1>
+  </div>
+</div>  
 </template>
-
-<style scoped>
-  #background-overlay{
-    background-color: #dc0404;
-    background-size: cover;
-    height: 100vh;
-    width: 100%;
-    mix-blend-mode: overlay;
-  }
-  #background-img{
-    background-image: url("../src/assets/img/home_page/home_image.png");
-    background-size: cover;
-    height: 100vh;
-    width: 100%;
-  }
-</style>
