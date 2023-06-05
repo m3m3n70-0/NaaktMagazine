@@ -2,20 +2,17 @@
 $host = 'studmysql01.fhict.local';
 $user = 'dbi507258';
 $password = 'naakTMags';
-$database = 'test';
+$database = 'dbi507258';
 
-$conn = new mysqli($host, $username, $password, $database);
+$conn = new mysqli($host, $user, $password, $database);
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+$query = "SELECT * FROM password"; // Replace 'your_table' with the actual table name
+
+$result = executeQuery($query);
+
+$data = array();
+while ($row = $result->fetch_assoc()) {
+  $data[] = $row;
 }
 
-function executeQuery($query) {
-    global $conn;
-    $result = $conn->query($query);
-    if (!$result) {
-        die("Query execution failed: " . $conn->error);
-    }
-    return $result;
-}
-?>
+echo json_encode($data);
