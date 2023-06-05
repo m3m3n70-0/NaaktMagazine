@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="containerDashboard">
       <button @click="fetchData">Fetch Data</button>
       <div v-for="item in data"></div>
       <ul>
@@ -18,15 +18,22 @@
       };
     },
     methods: {
-      fetchData() {
-        axios.get('src/database/db.php')
-          .then(response => {
-            this.data = response.data;
-          })
-          .catch(error => {
-            console.error('Error fetching data:', error);
-          });
-      },
+        fetchData() {
+            axios.get('/src/database/db.php') // Update the URL path to db.php
+                .then(response => {
+                this.data = response.data;
+                })
+                .catch(error => {
+                console.error('Error fetching data:', error);
+                });
+            },
     },
   };
   </script>
+
+<style scoped>
+.containerDashboard {
+    position: absolute;
+    margin-top: 20px;
+}
+</style>
