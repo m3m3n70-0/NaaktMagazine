@@ -1,7 +1,7 @@
 <template>
     <div class="containerDashboard">
+      <button @click="logUit">Uitloggen</button>
       <button @click="fetchData">Fetch Data</button>
-      <div v-for="item in data"></div>
       <ul>
         <li v-for="item in data">{{ item.id }}</li>
       </ul>
@@ -18,15 +18,23 @@
       };
     },
     methods: {
-        fetchData() {
-            axios.get('/src/database/db.php') // Update the URL path to db.php
-                .then(response => {
-                this.data = response.data;
-                })
-                .catch(error => {
-                console.error('Error fetching data:', error);
-                });
-            },
+      logUit() {
+        this.$router.push('/');
+        this.ChangeLoginStatus(false);
+      },
+      fetchData() {
+        axios.get('/src/database/db.php') // Update the URL path to db.php
+          .then(response => {
+          this.data = response.data;
+          })
+          .catch(error => {
+          console.error('Error fetching data:', error);
+          });
+        },
+        ChangeLoginStatus(login) {
+            this.$store.commit('changeLoginStatus', login);
+            console.log('Login status changed');
+        }
     },
   };
   </script>

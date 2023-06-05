@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import store from '../store'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -7,7 +7,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: () => import('../views/HomeView.vue')
     },
     {
       path: '/about',
@@ -26,18 +26,19 @@ const router = createRouter({
     },
   ]
 });
+
+// store function to check for login status
 router.beforeEach((to, from, next) => {
   // redirect to login page if not logged in and trying to access a restricted page
-  const publicPages = ['/login', '/about', '/'];
+  const publicPages = ['/', '/login', '/about'];
   const authRequired = !publicPages.includes(to.path);
-  const loggedIn = localStorage.getItem('user');
-
-  if (authRequired && !loggedIn) {
-
-    console.log('authRequired && !loggedIn');
+  const loggedIn = store.state.login;
+  if (loggedIn) {
+    console.log('Logged in');
+  } else if (authRequired && loggedIn == false) {
+    console.log('Niet ingelogd');
     return next('/login');
   }
-
   next();
 })
 

@@ -17,14 +17,18 @@ export default {
     },
     methods: {
         login() {
-            // const getPassword = JSON.parse(localStorage.getItem('password'));
+            // Database connection with password.
             const getPassword = "huts";
             if (this.input.password === getPassword) {
                 this.$router.push('/dashboard');
-                console.log('Login successful');
+                this.ChangeLoginStatus(true);
             } else {
                 console.log('A password must be provided');
             }
+        },
+        ChangeLoginStatus(login) {
+            this.$store.commit('changeLoginStatus', login);
+            console.log('Login status changed');
         }
     }
 }

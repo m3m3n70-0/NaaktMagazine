@@ -13,7 +13,6 @@ $result = executeQuery($query);
 $data = array();
 while ($row = $result->fetch_assoc()) {
   $data[] = $row;
-  echo $row['password'];
 }
 
 echo json_encode($data);
