@@ -18,12 +18,11 @@
   box-sizing: border-box;
 }
 
-#app {
-  
+body{
+  overflow-x: hidden;
 }
 
 #background-container{
-  
   height: 100vh;
   width: 100%;
 }
@@ -44,27 +43,84 @@
   z-index: 0;
 }
 #over-background{
-  margin-top: -75vh;
+  margin-top: -94vh;
   display: flex;
   position: relative;
   flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: space-between;
+  margin-right: 10%;
 }
 @media only screen and (max-width: 800px) {
   #over-background {
     flex-direction: column;
     justify-content: center;
+    align-items: center;
   }
+  #logo-home{
+    margin-top: 30vh;
+  }
+}
+#img-slogan-container{
+  margin-left: 5%;
 }
 #logo-home{
   z-index: 1;
   height: auto;
   width: 40vw;
+  
 }
 #naakt-magazine{
+  white-space: nowrap;
+  margin-top: 11%;
+}
+.avallon{
   font-family: avallon;
   color: var(--white);
-  font-size: clamp(2em, 4vw, 4em);
+  font-size: clamp(2.5rem, 4vw, 4rem);
+}
+.carouselA-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: perspective(13rem) rotateY(-3deg);
+  margin-top: -10vh;
+  margin-left: -9.7vw;
+  width: 100%;
+}
+
+.carouselA-wrapper {
+  width: 120vw;
+}
+
+.carouselA {
+  width: 200%;
+  height: 100%;
+  overflow: hidden;
   white-space: nowrap;
+}
+
+.carouselA-slide {
+  animation: 30s slide infinite linear;
+  animation-play-state: paused;
+  display: inline-block;
+}
+
+.carouselA:hover .carouselA-slide {
+  animation-play-state: running;
+}
+.carouselA-slide a {
+  display: inline-block;
+}
+
+.carouselA-slide img {
+  height: 50vh;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
 }
