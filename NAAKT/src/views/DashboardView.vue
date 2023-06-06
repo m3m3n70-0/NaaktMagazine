@@ -68,10 +68,15 @@
         this.ChangeLoginStatus(false);
       },
       fetchData() {
-        axios.get('/src/database/db.php') // Update the URL path to db.php
+        axios.get('https://i507258.hera.fhict.nl/src/database/db.php') // Update the URL path to db.php
           .then(response => {
           this.data = response.data;
-          })
+          this.data.forEach(element => {
+            console.log(element);
+            console.log(element.ID);
+            console.log(element.password);
+          });
+        })
           .catch(error => {
           console.error('Error fetching data:', error);
           });
