@@ -4,14 +4,22 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <header>
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+    <nav v-if="!isLoginPage">
+      <RouterLink to="/">Home</RouterLink>
+      <RouterLink to="/about">About</RouterLink>
+    </nav>
   </header>
   <RouterView />
 </template>
-
+<script>
+export default {
+  computed: {
+    isLoginPage() {
+      return this.$route.path === '/login';
+    }
+  }
+};
+</script>
 <style scoped>
     @import './assets/main.css';
     nav{
