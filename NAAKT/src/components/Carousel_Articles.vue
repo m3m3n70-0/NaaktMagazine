@@ -5,6 +5,7 @@
           <div class="carouselA-slide" ref="slide">
             <a v-for="(image, index) in carouselAImages" :href="image.link" :key="index">
               <img :src="image.src" :alt="image.alt" />
+              <div v-for="(article) in carouselAImages">{{ title }}</div>
             </a>
           </div>
         </div>
@@ -20,22 +21,27 @@
           {
             src: "../src/assets/img/home_page/Article-1.png",
             alt: "Article 1",
+            title: 'Rust'
           },
           {
             src: "../src/assets/img/home_page/Article-2.png",
             alt: "Article 2",
+            title: 'Rust'
           },
           {
             src: "../src/assets/img/home_page/Article-3.png",
             alt: "Article 3",
+            title: 'Rust'
           },
           {
             src: "../src/assets/img/home_page/Article-4.png",
             alt: "Article 4",
+            title: 'Rust'
           },
           {
             src: "../src/assets/img/home_page/Article-5.png",
             alt: "Article 5",
+            title: 'Rust'
           },
           {
             src: "../src/assets/img/home_page/Article-6.png",
