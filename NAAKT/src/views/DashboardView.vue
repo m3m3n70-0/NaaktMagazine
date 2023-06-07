@@ -21,7 +21,6 @@
             <p>Profiel</p>
           </div>
           </div>
-          
       </div>
 
       <div class="dashboardRight">

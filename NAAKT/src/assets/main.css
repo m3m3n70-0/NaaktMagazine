@@ -29,7 +29,7 @@ body{
 #background-overlay{
   background-color: #dc0404;
   background-size: cover;
-  height: 100vh;
+  height: 110vh;
   width: 100%;
   mix-blend-mode: overlay;
   opacity: 50%;
@@ -43,7 +43,7 @@ body{
   z-index: 0;
 }
 #over-background{
-  margin-top: -94vh;
+  margin-top: -84vh;
   display: flex;
   position: relative;
   flex-direction: row;
@@ -72,6 +72,7 @@ body{
 #naakt-magazine{
   white-space: nowrap;
   margin-top: 11%;
+  z-index: 1;
 }
 .avallon{
   font-family: avallon;
@@ -83,7 +84,7 @@ body{
   justify-content: center;
   align-items: center;
   transform: perspective(13rem) rotateY(-3deg);
-  margin-top: -10vh;
+  margin-top: -5vh;
   margin-left: -9.7vw;
   width: 100%;
 }

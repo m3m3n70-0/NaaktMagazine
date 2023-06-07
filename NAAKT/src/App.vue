@@ -23,19 +23,21 @@ export default {
 <style scoped>
     @import './assets/main.css';
     nav{
-      position: absolute;
+      position: fixed;
       display: flex;
       width: 100%;
+      backdrop-filter: brightness(60%) blur(1px);
       flex-direction: row;
       justify-content: flex-end;
-      z-index: 5;
+      z-index: 10;
+      padding-bottom: 2rem;
+      padding-top: 2rem;
     }
     a{
       font-family: elza;
       font-size: clamp(1.5rem, 2vw, 2.5rem);
       text-decoration: none;
       color: var(--white);
-      padding-top: 3rem;
       margin-right: 3%;
     }
     #last-nav-item{
