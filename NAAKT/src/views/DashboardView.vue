@@ -1,92 +1,103 @@
 <template>
-    <!-- <div class="containerDashboard">
-      <button @click="logUit">Uitloggen</button>
-      <button @click="fetchData">Fetch Data</button>
-      <ul>
-        <li v-for="item in data">{{ item.id }}</li>
-      </ul>
-    </div> -->
-    <section class="dashboardSec">
-      <div class="dashboardLeft">
-          <div class="logoArea">
-            <img src="../assets/img/dashboard/logo_wit.png" alt="logo" />
-          </div>
-          <div class="dashboardLeftBottom">
-            <div class="settingArea">
-            <img src="../assets/img/dashboard/settings.png">
-            <p>Instellingen</p>
-          </div>
-          <div class="profileArea">
-            <img src="../assets/img/dashboard/profile.jpg">
-            <p>Profiel</p>
-          </div>
-          </div>
+  <section class="dashboardSec">
+    <!-- Left side of the dashboard -->
+    <div class="dashboardLeft">
+      <div class="logoArea">
+        <img src="../assets/img/dashboard/logo_wit.png" alt="logo" />
       </div>
-
-      <div class="dashboardRight">
-        <div class="dashboardRightMain">
-          <div class="dashboardRightMainTop">
-            <h1>Overzicht</h1>
-            <a href="https://google.com" target="_blank">Nieuwe Content</a>
-          </div>
-
-          <div class="dashboardRightContent">
-            <div class="row row-top">
-          <div class="column column-name">Name</div>
-          <div class="column column-date">Date</div>
-          <div class="column column-actions">Actions</div>
+      <div class="dashboardLeftBottom">
+        <div class="settingArea">
+          <img src="../assets/img/dashboard/settings.png" />
+          <p>Instellingen</p>
         </div>
-        <div class="row">
-          <div class="column column-name">test</div>
-          <div class="column column-date">03-11-2022</div>
-          <div class="column column-actions">
-            <a><img src="../assets/img/dashboard/delete.svg"></a>
-            <a><img src="../assets/img/dashboard/edit.svg"></a>
-          </div>
-        </div>
-
-          </div>
+        <div class="profileArea">
+          <img src="../assets/img/dashboard/profile.jpg" />
+          <p>Profiel</p>
         </div>
       </div>
-      
-    </section>
-  </template>
+    </div>
 
-  <script>
-  import axios from 'axios';
+    <!-- Right side of the dashboard -->
+    <div class="dashboardRight">
+      <div class="dashboardRightMain">
+        <div class="dashboardRightMainTop">
+          <h1>Overzicht</h1>
+          <a href="https://google.com" target="_blank">Nieuwe Content</a>
+        </div>
 
-  export default {
-    data() {
-      return {
-        data: [],
-      };
+        <div class="dashboardRightContent">
+          <template v-if="loading">
+            <p>Loading...</p>
+          </template>
+          <template v-else>
+            <table class="table">
+            <thead>
+              <tr>
+                <th class="column column-name">Name</th>
+                <th class="column column-date">Date</th>
+                <th class="column column-actions">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="item in data">
+                <td class="column column-name">{{ item.name }}</td>
+                <td class="column column-date">{{ item.date }}</td>
+                <td class="column column-actions">
+                  <a><img src="../assets/img/dashboard/delete.svg"></a>
+                  <a><img src="../assets/img/dashboard/edit.svg"></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+            <template v-if="error">
+              <p>Error fetching data: {{ error }}</p>
+            </template>
+          </template>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
+
+<script>
+import axios from 'axios';
+
+export default {
+  data() {
+    return {
+      data: [],
+      loading: true,
+      error: null,
+    };
+  },
+  methods: {
+    logUit() {
+      this.$router.push('/');
+      this.changeLoginStatus(false);
     },
-    methods: {
-      logUit() {
-        this.$router.push('/');
-        this.ChangeLoginStatus(false);
-      },
-      fetchData() {
-        axios.get('https://i507258.hera.fhict.nl/src/database/db.php') // Update the URL path to db.php
-          .then(response => {
+    fetchData() {
+      axios
+        .get('https://vaporwave-it.nl/naakt/db.php') // Update the URL to your PHP file
+        .then(response => {
           this.data = response.data;
-          this.data.forEach(element => {
-            console.log(element);
-            console.log(element.ID);
-            console.log(element.password);
-          });
+          this.loading = false;
         })
-          .catch(error => {
+        .catch(error => {
           console.error('Error fetching data:', error);
-          });
-        },
-        ChangeLoginStatus(login) {
-            this.$store.commit('changeLoginStatus', login);
-            console.log('Login status changed');
-        }
+          this.error = error.message;
+          this.loading = false;
+        });
     },
-  };
-  </script>
+    changeLoginStatus(login) {
+      this.$store.commit('changeLoginStatus', login);
+      console.log('Login status changed');
+    },
+  },
+  created() {
+    this.fetchData();
+  },
+};
+</script>
 
 <style scoped>
 .dashboardSec {
@@ -183,30 +194,30 @@
   .dashboardRightContent{
     margin-top: 30px;
   }
-  .dashboardRightContent .row {
-    display: flex;
-    align-items: center;
-    padding: 10px 0;
+  
+  .dashboardRightContent .table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
 }
 
-.dashboardRightContent .row-top{
+.dashboardRightContent .table th,
+.dashboardRightContent .table td {
+  padding: 10px 0;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.dashboardRightContent .table th {
+  font-weight: bold;
   border-bottom: 1px solid #ccc;
 }
 
-.dashboardRightContent .column {
-  flex: 1;
-  padding: 0 10px;
-}
-
-.dashboardRightContent .column-name {
-  font-weight: bold;
-}
-
-.dashboardRightContent .column-actions a {
+.dashboardRightContent .table td.column-actions a {
   margin-right: 5px;
 }
 
-.dashboardRightContent .column-actions a img {
+.dashboardRightContent .table td.column-actions a img {
   width: 20px;
   height: 20px;
   margin-right: 5px;
