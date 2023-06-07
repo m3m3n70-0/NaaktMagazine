@@ -86,16 +86,13 @@
 .carousel:hover .carousel-slide {
   animation-play-state: paused;
 }
-
 .carousel-slide a {
   display: inline-block;
   margin: 0 30px;
 }
-
 .carousel-slide img {
   height: 50px;
 }
-
 @keyframes slide {
   from {
     transform: translateX(0);

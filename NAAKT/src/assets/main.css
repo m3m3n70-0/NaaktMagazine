@@ -60,6 +60,12 @@ body{
     margin-top: 30vh;
   }
 }
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
 #img-slogan-container{
   margin-left: 5%;
 }
@@ -67,7 +73,6 @@ body{
   z-index: 1;
   height: auto;
   width: 40vw;
-  
 }
 #naakt-magazine{
   white-space: nowrap;
@@ -85,18 +90,18 @@ body{
   align-items: center;
   transform: perspective(13rem) rotateY(-3deg);
   margin-top: -5vh;
-  margin-left: -9.7vw;
-  width: 100%;
+  margin-left: -13.5vw;
+  width: 110%;
+  overflow: hidden;
 }
 
 .carouselA-wrapper {
-  width: 120vw;
+  width: 100%;
 }
 
 .carouselA {
   width: 200%;
   height: 100%;
-  overflow: hidden;
   white-space: nowrap;
 }
 
@@ -111,10 +116,19 @@ body{
 }
 .carouselA-slide a {
   display: inline-block;
+  width: 19vw;
 }
 
 .carouselA-slide img {
   height: 50vh;
+}
+
+.title{
+  display: flex;
+  justify-content: center;
+  font-family: avallon;
+  font-size: 3rem;
+  width: 19vw;
 }
 
 @keyframes slide {

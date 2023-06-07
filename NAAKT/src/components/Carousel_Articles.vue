@@ -5,7 +5,7 @@
           <div class="carouselA-slide" ref="slide">
             <a v-for="(image, index) in carouselAImages" :href="image.link" :key="index">
               <img :src="image.src" :alt="image.alt" />
-              <div v-for="(article) in carouselAImages">{{ title }}</div>
+              <p class="title">{{ image.title }}</p>
             </a>
           </div>
         </div>
@@ -21,37 +21,39 @@
           {
             src: "../src/assets/img/home_page/Article-1.png",
             alt: "Article 1",
-            title: 'Rust'
+            title: "Reizen als student",
+            link: "https://example.com/article1"
           },
           {
             src: "../src/assets/img/home_page/Article-2.png",
             alt: "Article 2",
-            title: 'Rust'
+            title: 'Neem je rust'
           },
           {
             src: "../src/assets/img/home_page/Article-3.png",
             alt: "Article 3",
-            title: 'Rust'
+            title: 'De onzekere toekomst'
           },
           {
             src: "../src/assets/img/home_page/Article-4.png",
             alt: "Article 4",
-            title: 'Rust'
+            title: 'Belang van cultuur'
           },
           {
             src: "../src/assets/img/home_page/Article-5.png",
             alt: "Article 5",
-            title: 'Rust'
+            title: 'Depressie'
           },
           {
             src: "../src/assets/img/home_page/Article-6.png",
             alt: "Article 6",
+            title: 'things you never knew'
           }
         ]
       };
     },
     mounted() {
-      const copyCarouselA = this.$refs.slide.cloneNode(true);
+      let copyCarouselA = this.$refs.slide.cloneNode(true);
       const carouselA = this.$el.querySelector('.carouselA');
       carouselA.appendChild(copyCarouselA);
     }
