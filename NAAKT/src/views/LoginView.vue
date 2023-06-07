@@ -24,7 +24,6 @@ export default {
         .then(response => {
             this.data = response.data;
             this.data.forEach(element => {
-            console.log(element.password);
             this.login(element.password); // Update method call to use 'this.login'
             });
         })
@@ -33,8 +32,7 @@ export default {
         });
     },
     login(password) { // Pass password as a parameter
-        console.log(password); // Update to log 'password' instead of 'element.password'
-        const getPassword = "huts";
+        const getPassword = password;
         if (password === getPassword) { // Update to use the 'password' parameter
         this.$router.push('/dashboard');
         this.changeLoginStatus(true); // Update method call to use 'this.changeLoginStatus'
