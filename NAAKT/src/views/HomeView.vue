@@ -1,7 +1,7 @@
 <script setup>
 import Home from '../components/Home.vue'
-import Carousel from '../components/Carousel.vue'
 import Carousel_Articles from '../components/Carousel_Articles.vue'
+import Footer from '../components/Footer.vue'
 </script>
 
 <template>
@@ -9,7 +9,7 @@ import Carousel_Articles from '../components/Carousel_Articles.vue'
     <body>
       <Home />
       <Carousel_Articles />
-      <Carousel />
+      <Footer />
     </body>
   </main>
 </template>

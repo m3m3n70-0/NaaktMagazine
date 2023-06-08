@@ -5,7 +5,7 @@ import { RouterLink, RouterView } from 'vue-router'
 <template>
   <header>
     <nav v-if="!isLoginPage">
-      <RouterLink to="/">Home</RouterLink>
+      <RouterLink v-if="this.$route.path != '/'" to="/" id="nav-logo"><img src="src\assets\img\home_page\logo_wit.png"></RouterLink>
       <RouterLink to="/about">About</RouterLink>
     </nav>
   </header>
@@ -22,6 +22,7 @@ export default {
 </script>
 <style scoped>
     @import './assets/main.css';
+
     nav{
       position: fixed;
       display: flex;
@@ -33,14 +34,23 @@ export default {
       padding-bottom: 2rem;
       padding-top: 2rem;
     }
+    #nav-logo{
+      position: absolute;
+      left: 3%;
+      top: 25%;
+    }
     a{
       font-family: elza;
-      font-size: clamp(1.5rem, 2vw, 2.5rem);
+      font-size: clamp(1.5rem, 2vw, 2rem);
       text-decoration: none;
       color: var(--white);
       margin-right: 3%;
     }
     #last-nav-item{
       margin-right: 10%;
+    }
+    img{
+      height: 6vh;
+      width: 100%;
     }
 </style>

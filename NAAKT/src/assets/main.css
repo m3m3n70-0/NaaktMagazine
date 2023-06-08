@@ -10,6 +10,9 @@
 
 :root{
   --white: #ffffff;
+  --red: #dc0404;
+  --yellow: #ffff1f;
+  --black: #000000;
 }
 
 *{
@@ -22,12 +25,14 @@ body{
   overflow-x: hidden;
 }
 
+/* home */
+
 #background-container{
   height: 100vh;
   width: 100%;
 }
 #background-overlay{
-  background-color: #dc0404;
+  background-color: var(--red);
   background-size: cover;
   height: 110vh;
   width: 100%;
@@ -50,20 +55,11 @@ body{
   justify-content: space-between;
   margin-right: 10%;
 }
-@media only screen and (max-width: 800px) {
-  #over-background {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  #logo-home{
-    margin-top: 30vh;
-  }
-}
+
 
 a{
   text-decoration: none;
-  color: black;
+  color: var(--black);
 }
 
 #img-slogan-container{
@@ -85,12 +81,15 @@ a{
   font-size: clamp(2.5rem, 4vw, 4rem);
 }
 .carouselA-container {
+  background-color: var(--white);
   display: flex;
   justify-content: center;
   align-items: center;
   transform: perspective(13rem) rotateY(-3deg);
   margin-top: -5vh;
   margin-left: -13.5vw;
+  margin-bottom: 9.2vh;
+  padding-bottom: 7vh;
   width: 110%;
   overflow: hidden;
 }
@@ -116,9 +115,7 @@ a{
 }
 .carouselA-slide a {
   display: inline-block;
-  width: 19vw;
 }
-
 .carouselA-slide img {
   height: 50vh;
 }
@@ -126,9 +123,11 @@ a{
 .title{
   display: flex;
   justify-content: center;
-  font-family: avallon;
-  font-size: 3rem;
-  width: 19vw;
+  font-family: elza;
+  font-size: clamp(1rem, 1.3vw, 3rem);
+}
+p{
+  margin-top: 2vh;
 }
 
 @keyframes slide {
@@ -138,4 +137,91 @@ a{
   to {
     transform: translateX(-100%);
   }
+}
+
+/* footer */
+
+footer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: var(--black);
+  width: 100%;
+  height: 10vh;
+}
+.contact-container{
+  display: flex;
+  color: var(--white);
+  font-family: elza;
+}
+.contact-form{
+  font-size: clamp(2rem, 3vw, 2.5rem);
+}
+.contact-details-container{
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: center;
+  color: var(--white);
+  font-family: elza;
+  height: 5vh;
+  margin-right: 3vw;
+  margin-left: 2vw;
+}
+.contact-details{
+  display: flex;
+  flex-direction: row;
+}
+#at-sign{
+  font-family: 'Times New Roman', Times, serif;
+}
+.social-media{
+  color: var(--white);
+  margin-top: 10vh;
+}
+
+@media only screen and (max-width: 800px) {
+  #over-background {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: -115vh;
+  }
+  #logo-home{
+    margin-top: 30vh;
+  }
+  .carouselA-container {
+    margin-top: -30vh;
+  }
+  .contact-container{
+    width: 90%;
+  }
+}
+
+/* about */
+
+.core-values{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: 0 center;
+  background-repeat: no-repeat;
+  backdrop-filter: blur(1px);
+  height: 40vh;
+  width: 100%;
+  color: var(--white);
+  font-family: avallon;
+  font-size: 120pt;
+}
+.about-gewaagd{
+  background-image: url('/src/assets/img/about/about_background.jpg');
+}
+.about-inclusief{
+  background-image: url('/src/assets/img/about/Inclusief.jpg');
+}
+.about-puur{
+  background-image: url('/src/assets/img/about/Puur.jpg');
+  background-position: 0 20%;
 }

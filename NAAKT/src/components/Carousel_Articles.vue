@@ -21,28 +21,28 @@
           {
             src: "../src/assets/img/home_page/Article-1.png",
             alt: "Article 1",
-            title: "Reizen als student",
+            title: "reizen als student",
             link: "https://example.com/article1"
           },
           {
             src: "../src/assets/img/home_page/Article-2.png",
             alt: "Article 2",
-            title: 'Neem je rust'
+            title: 'neem je rust'
           },
           {
             src: "../src/assets/img/home_page/Article-3.png",
             alt: "Article 3",
-            title: 'De onzekere toekomst'
+            title: 'de onzekere toekomst'
           },
           {
             src: "../src/assets/img/home_page/Article-4.png",
             alt: "Article 4",
-            title: 'Belang van cultuur'
+            title: 'belang van cultuur'
           },
           {
             src: "../src/assets/img/home_page/Article-5.png",
             alt: "Article 5",
-            title: 'Depressie'
+            title: 'depressie'
           },
           {
             src: "../src/assets/img/home_page/Article-6.png",
