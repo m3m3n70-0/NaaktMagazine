@@ -56,7 +56,6 @@ body{
   margin-right: 10%;
 }
 
-
 a{
   text-decoration: none;
   color: var(--black);
@@ -108,10 +107,10 @@ a{
   animation: 30s slide infinite linear;
   animation-play-state: paused;
   display: inline-block;
-}
-
-.carouselA:hover .carouselA-slide {
   animation-play-state: running;
+}
+.carouselA:hover .carouselA-slide {
+  animation-play-state: paused;
 }
 .carouselA-slide a {
   display: inline-block;
@@ -202,21 +201,15 @@ footer{
 /* about */
 
 .core-values{
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-size: cover;
   background-position: 0 center;
   background-repeat: no-repeat;
-  backdrop-filter: blur(1px);
   height: 40vh;
   width: 100%;
-  color: var(--white);
-  font-family: avallon;
-  font-size: 120pt;
 }
 .about-gewaagd{
   background-image: url('/src/assets/img/about/about_background.jpg');
+  height: 50vh;
 }
 .about-inclusief{
   background-image: url('/src/assets/img/about/Inclusief.jpg');
@@ -224,4 +217,29 @@ footer{
 .about-puur{
   background-image: url('/src/assets/img/about/Puur.jpg');
   background-position: 0 20%;
+  
+}
+.about-text-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-top: 4rem;
+  padding-bottom: 5rem;
+}
+.about-text{
+  font-family: elza;
+  font-size: clamp(0.5rem, 3vw, 1.5rem);
+  width: 50%;
+}
+.backdrop-filter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white);
+  font-family: avallon;
+  font-size: clamp(5rem, 10vw, 10rem);
+  backdrop-filter: blur(2px) drop-shadow(20%);
+  height: 100%;
+  width: 100%;
 }
