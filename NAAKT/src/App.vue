@@ -15,7 +15,7 @@ import { RouterLink, RouterView } from 'vue-router'
 export default {
   computed: {
     isLoginPage() {
-      return this.$route.path === '/login' || this.$route.path === '/dashboard';
+      return this.$route.path === '/dashboard';
     }
   }
 };

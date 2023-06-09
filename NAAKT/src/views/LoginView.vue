@@ -1,8 +1,10 @@
 <template>
-    <div id="login">
-        <h1>Login</h1>
-        <input type="password" name="password" v-model="input.password" placeholder="Password" />
-        <button type="button" v-on:click="fetchData">Login</button>
+    <div class="loginContainer">
+        <div id="login">
+            <h1>Login</h1>
+            <input class="password" type="password" name="password" v-model="input.password" placeholder="Wachtwoord" />
+            <button class="login-btn" type="button" v-on:click="fetchData">Login</button>
+        </div>
     </div>
 </template>
 
@@ -50,12 +52,48 @@ export default {
 </script>
 
 <style scoped>
-#login {
-    width: 500px;
-    border: 1px solid #CCCCCC;
-    background-color: #FFFFFF;
-    margin: auto;
-    margin-top: 200px;
-    padding: 20px;
+.loginContainer{
+    width: 100%;
+    height: 100vh;
+    background: url(../assets/img/login/login-bg.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#login{
+    display: flex;
+    flex-direction: column;
+}
+
+#login h1{
+    font-family: 'elza' , sans-serif;
+    text-align: center;
+    color: #fff;
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+#login .password{
+    width: 300px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    padding: 0 10px;
+    margin-bottom: 20px;
+}
+
+#login .login-btn{
+    width: 300px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: #EC7710;
+    color: #fff;
+    font-family: 'elza' , sans-serif;
+    font-size: 20px;
+    cursor: pointer;
 }
 </style>
